@@ -27,5 +27,14 @@ pipeline {
 			  }
 		  
 		  }
+		
+		stage ('Reports')
+		{
+			steps{
+			
+			junit 'spring-boot-samples/spring-boot-sample-atmosphere/target/surefire-reports/*.xml'
+			}
+		  
+		}
   }
 }
