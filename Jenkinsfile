@@ -9,7 +9,7 @@ pipeline {
 	      checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/chanchalsoni123/jenkins2-course-spring-boot.git']]])
       }
     }
-dir('spring-boot-samples/spring-boot-sample-atmosphere')
+// dir('spring-boot-samples/spring-boot-sample-atmosphere')
 	  {
     stage('Compile') { 
       tools {
@@ -19,7 +19,7 @@ dir('spring-boot-samples/spring-boot-sample-atmosphere')
       }
       steps {
 			// Some Step
-	       powershell label: '', script: 'mvn clean package'
+	       powershell label: '', script: 'mvn -f spring-boot-samples/spring-boot-sample-atmosphere/pom.xml clean package'
       }
     }
 		  stage ('archival')
@@ -33,6 +33,6 @@ dir('spring-boot-samples/spring-boot-sample-atmosphere')
 		  
 		 
 		  
-    }
+    //}
   }
 }
