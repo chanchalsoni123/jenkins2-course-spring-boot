@@ -1,6 +1,7 @@
 pipeline {
   agent any
-  stages {
+def project_path ="spring-boot-samples/spring-boot-sample-atmosphere/"
+	stages {
     stage('Source') { 
       steps {
 			// Some Step
@@ -8,7 +9,6 @@ pipeline {
 	      checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/chanchalsoni123/jenkins2-course-spring-boot.git']]])
       }
     }
-def project_path ="spring-boot-samples/spring-boot-sample-atmosphere/"
 dir(project_path)
 	  {
     stage('Compile') { 
