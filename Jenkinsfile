@@ -10,7 +10,7 @@ pipeline {
       }
     }
 // dir('spring-boot-samples/spring-boot-sample-atmosphere')
-	  {
+	  //{
     stage('Compile') { 
       tools {
         // Specify Tool Name from your global tool configuration
