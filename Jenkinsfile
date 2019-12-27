@@ -28,13 +28,21 @@ pipeline {
 		  
 		  }
 		
-		stage ('Reports')
+		stage ('Reports Generate')
 		{
 			steps{
 			
 			junit 'spring-boot-samples/spring-boot-sample-atmosphere/target/surefire-reports/*.xml'
+				
+				
 			}
-		  
+		}
+		stage ('Reports Publish')
+		{
+		     steps
+			{
+			publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'spring-boot-samples/spring-boot-sample-atmosphere/target/site/jacoco', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
+			}
 		}
   }
 }
